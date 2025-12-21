@@ -484,7 +484,7 @@
             .hero-content p { padding: 0 10px; font-size: 1rem; }
             .hero-btns { flex-direction: column; width: 100%; padding: 0 20px; }
             .hero-btns .btn { width: 100%; text-align: center; }
-
+            p  {text-align: justify!important;}
             /* Section Padding */
             #about, #services, #portfolio, #contact { padding: 50px 0; }
             .section-title { font-size: 2rem; }
