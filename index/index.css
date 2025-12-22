@@ -468,7 +468,7 @@ nav {
     scrollbar-width: none;
     -ms-overflow-style: none;
     border-radius: 15px;
-    align-items: flex-start;
+    align-items: flex-start !important; /* Fix for alignment */
 }
 
 .team-carousel::-webkit-scrollbar {
@@ -488,8 +488,9 @@ nav {
     scroll-snap-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    height: fit-content;
-    align-self: flex-start;
+    height: auto !important; /* Allow card to shrink */
+    align-self: flex-start !important; /* Fix for gap */
+    min-height: 0 !important;
 }
 
 .team-card img {
@@ -769,6 +770,9 @@ footer {
     font-size: 0.85rem;
 }
 
+/* =========================================
+   MOBILE RESPONSIVE STYLES
+   ========================================= */
 @media (max-width: 768px) {
     .hamburger {
         display: block;
@@ -910,15 +914,41 @@ footer {
         color: white;
         border: none;
     }
-}
-/* Force the carousel to NOT stretch the cards */
-.team-carousel {
-    align-items: flex-start !important;
-}
 
-/* Force the cards to shrink to fit their content only */
-.team-card {
-    height: auto !important;
-    align-self: flex-start !important;
-    min-height: 0 !important; /* Prevents flex bugs */
+    /* --- SHRINK TEAM CARDS ON MOBILE --- */
+    /* Make the image much shorter on mobile */
+    .team-card img {
+        height: 200px;
+    }
+
+    /* Reduce padding inside the card */
+    .team-content {
+        padding: 15px;
+    }
+
+    /* Reduce font sizes */
+    .team-name {
+        font-size: 1.25rem;
+    }
+
+    .team-role {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+    }
+
+    .team-desc {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+        min-height: auto; /* Remove height constraint on mobile */
+    }
+
+    /* Make buttons smaller and more compact */
+    .team-btn {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .team-tags {
+        margin-bottom: 15px;
+    }
 }
