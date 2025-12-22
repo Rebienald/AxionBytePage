@@ -1,4 +1,3 @@
-  // --- MOBILE MENU FUNCTIONALITY ---
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
         const navItems = document.querySelectorAll('.nav-link-item');
@@ -8,7 +7,6 @@
             navLinks.classList.toggle('active');
         });
 
-        // Close menu when a link is clicked
         navItems.forEach(item => {
             item.addEventListener('click', () => {
                 hamburger.classList.remove('active');
@@ -16,7 +14,6 @@
             });
         });
 
-        // --- DARK/LIGHT MODE TOGGLE ---
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
         const icon = themeToggle;
@@ -33,7 +30,6 @@
             }
         });
 
-        // --- TEAM CAROUSEL FUNCTIONALITY ---
         const carousel = document.getElementById('teamCarousel');
         const nextBtn = document.getElementById('nextBtn');
         const prevBtn = document.getElementById('prevBtn');
