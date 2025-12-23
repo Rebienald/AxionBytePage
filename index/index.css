@@ -82,7 +82,7 @@ ul {
     position: absolute;
     width: 20vmin;
     height: 20vmin;
-    border-radius: 10px;
+    border-radius: 50%;
     backface-visibility: hidden;
     animation: move linear infinite;
     opacity: 0.6;
