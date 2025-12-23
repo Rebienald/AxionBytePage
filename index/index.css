@@ -1075,14 +1075,16 @@ textarea {
 }
 
 @media (max-width: 768px) {
+    .contact-layout {
+        flex-direction: column;
+    }
+
     .contact-text {
-        order: 2;
         padding-right: 0;
     }
 
     .contact-form-card {
-        order: 1;
         margin-left: 0;
-         min-width: 180px
+        min-width: 180px;
     }
 }
