@@ -82,7 +82,7 @@ ul {
     position: absolute;
     width: 20vmin;
     height: 20vmin;
-    border-radius: 50%;
+    border-radius: 10px;
     backface-visibility: hidden;
     animation: move linear infinite;
     opacity: 0.6;
@@ -161,7 +161,7 @@ ul {
 
 .btn {
     padding: 10px 24px;
-    border-radius: 50px;
+    border-radius: 10px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -414,7 +414,7 @@ nav {
     margin: 0 auto 20px auto;
     width: fit-content;
     padding: 8px 20px;
-    border-radius: 50px;
+    border-radius: 10px;
     background: rgba(139, 92, 246, 0.1);
     border: 1px solid rgba(139, 92, 246, 0.3);
     color: var(--primary);
@@ -506,7 +506,7 @@ nav {
     padding-bottom: 20px;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    border-radius: 15px;
+    border-radius: 10px;
     align-items: flex-start !important;
 }
 
@@ -518,7 +518,7 @@ nav {
     background-color: rgba(15, 15, 15, 0.85);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(139, 92, 246, 0.3);
-    border-radius: 15px;
+    border-radius: 10px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -614,7 +614,7 @@ body.light-mode .team-card {
     background-color: var(--card-bg);
     border: 1px solid var(--card-border);
     color: var(--text-main);
-    border-radius: 50%;
+    border-radius: 10px;
     cursor: pointer;
     z-index: 10;
     display: flex;
@@ -721,7 +721,7 @@ body.light-mode .team-card {
     background: white;
     color: var(--primary);
     padding: 8px 16px;
-    border-radius: 50px;
+    border-radius: 10px;
     font-size: 0.8rem;
     font-weight: 600;
     display: inline-block;
@@ -770,7 +770,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
+    border-radius: 10px;
     color: var(--text-main);
 }
 
