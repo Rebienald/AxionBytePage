@@ -153,3 +153,7 @@
 
         // Start typing animation
         type();
+
+
+
+        

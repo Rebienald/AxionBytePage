@@ -35,7 +35,7 @@
                     <li><a href="#about" class="nav-link-item">About</a></li>
                     <li><a href="#services" class="nav-link-item">Services</a></li>
                     <li><a href="#portfolio" class="nav-link-item">Portfolio</a></li>
-                    <li><a href="ContactUs/contact.html" class="nav-link-item">Contact Us</a></li>
+                    <li><a href="#contact" class="nav-link-item">Contact Us</a></li>
                 </ul>
 
                 <div class="nav-actions">
@@ -269,12 +269,34 @@
                             <p>Get instant support from our team</p>
                             <a href="https://www.instagram.com/axionn.byte/" class="contact-btn-white" style="cursor:pointer">Chat Now</a>
                         </div>
-                        <div class="contact-option-box">
-                            <i class="fa-regular fa-envelope"></i>
-                            <h4>Inquire us!</h4>
-                            <p>Send us your inquiries/offers anytime</p>
-<a href="mailto:axionbyteagency@gmail.com?subject=Inquiry for AxionByte" class="contact-btn-white">Get Started</a>                        </div>
-                    </div>
+                        
+                </div>
+<br>
+                <div class="contact-form-card">
+                    <form id="contact-form" class="about-card" novalidate>
+                        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                            <div style="flex:1; min-width:150px;">
+                                <input type="text" id="from_name" name="from_name" placeholder="Name" required>
+                            </div>
+                            <div style="flex:1; min-width:150px;">
+                                <input type="email" id="from_email" name="from_email" placeholder="Email" required>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:12px;">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+
+                        <div style="margin-top:12px;">
+                            <textarea id="message" name="message" rows="6" placeholder="Write your message..." required></textarea>
+                        </div>
+
+                        <div style="margin-top:16px; display:flex; gap:12px; align-items:center;">
+                            <button class="btn btn-primary" type="submit">Send message</button>
+                            <button id="clear-btn" type="button" class="btn btn-outline">Clear</button>
+                            <div id="form-status" style="color:var(--text-secondary); font-size:0.95rem;"></div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -307,6 +329,11 @@
     </footer>
 
     <script src="index/index.js"></script>
-</body>
+        <script src="ContactUs/contact.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+    <script>
+       
+    </script>
 
 </html>

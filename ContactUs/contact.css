@@ -3,9 +3,8 @@
     background-color: var(--card-bg);
     border: 1px solid var(--card-border);
     padding: 24px;
-    margin-right: 10px;
-    margin-left: 10px;
     border-radius: 10px;
+    min-width: 200px;
 }
 
 label.tag {
@@ -64,7 +63,9 @@ textarea {
 }
 
 .contact-form-card {
-    margin-left: 10px;
+    min-width: 200px;
+    width: 250px;
+    
 }
 
 .contact-layout {
@@ -76,7 +77,7 @@ textarea {
 }
 
 .contact-form-card {
-    margin-left: 10px;
+
 }
 
 p {
