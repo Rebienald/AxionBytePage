@@ -1,3 +1,7 @@
+html {
+    overflow-x: hidden;
+}
+
 :root {
     --bg-color: #050505;
     --card-bg: #0f0f0f;
@@ -41,7 +45,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-main);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
 }
 
 a {
@@ -68,7 +72,7 @@ ul {
 
 .background {
     position: fixed;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     top: 0;
     left: 0;
@@ -269,6 +273,20 @@ ul {
     background-color: var(--btn-white-bg);
     color: var(--btn-white-text);
     border: 1px solid var(--btn-white-bg);
+}
+
+.btn-white:hover {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-2px);
 }
 
 .btn-outline {
@@ -785,8 +803,9 @@ body.light-mode .team-card {
     background-color: #8b5cf6;
     border-radius: 10px;
     padding: 40px;
-    min-width: 350px;
+    min-width: 280px;
     position: relative;
+    margin-right: 20px;
 }
 
 .contact-support-label {
@@ -1046,7 +1065,8 @@ footer {
 
     .contact-card-container {
         width: 100%;
-        padding: 25px 15px;
+        padding: 15px 15px;
+        height: auto;
     }
 
     .contact-options {
@@ -1066,9 +1086,13 @@ footer {
     .contact-option-box h4 {
         font-size: 0.85rem;
     }
+
+    .contact-option-box p {
+        margin-bottom: 8px;
+    }
     
     .contact-support-label {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         top: 15px;
     }
 
@@ -1134,7 +1158,7 @@ footer {
     border-radius: 0;
     padding: 0;
     flex: 1.2;
-    min-width: 350px;
+    min-width: 280px;
 }
 
 .contact-form-card .about-card {
@@ -1144,10 +1168,15 @@ footer {
     box-shadow: none;
 }
 
+.contact-form-card .about-card:hover {
+    transform: none;
+    border-color: transparent;
+}
+
 .contact-form-row {
     display: flex;
     gap: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 .contact-form-row input {
@@ -1166,7 +1195,7 @@ footer {
     width: 100%;
     outline: none;
     transition: all 0.3s ease;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     font-size: 0.95rem;
 }
 
@@ -1185,7 +1214,7 @@ footer {
 .contact-form-card textarea {
     resize: vertical;
     min-height: 120px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 .contact-form-buttons {
@@ -1213,8 +1242,11 @@ footer {
 }
 
 .contact-form-card .btn-primary:hover {
-    background-color: #f0f0f0;
-    transform: translateY(-2px);
+    background-color: var(--primary-dark);
+    color: #ffffff;
+    border-color: var(--primary-dark);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+    transform: translateY(-3px);
 }
 
 .contact-form-card .btn-outline {
@@ -1232,10 +1264,17 @@ footer {
     .contact-form-card {
         margin-left: 0;
         width: 100%;
-        padding: 25px;
-        min-width: 100% !important;
+        padding: 5px 0;
+        min-width: 0 !important;
     }
     
+    .contact-form-card input[type="text"],
+    .contact-form-card input[type="email"],
+    .contact-form-card textarea {
+        margin-bottom: 6px;
+        padding: 8px 12px;
+    }
+
     .contact-form-row {
         flex-direction: column;
         gap: 0;
@@ -1244,6 +1283,10 @@ footer {
     .contact-form-buttons {
         flex-direction: column;
         gap: 10px;
+    }
+    
+    .contact-form-card textarea {
+        min-height: 100px;
     }
     
     .contact-options {
