@@ -106,8 +106,12 @@ ul {
             align-items: center;
             transition: opacity 0.5s ease, visibility 0.5s ease;
         }
+        p {
+            text-align: justify !important;
+        }
 
-        /* --- SQUARE LOADER CSS --- */
+        /* --- S
+        QUARE LOADER CSS --- */
         .loader {
             width: 65px;
             aspect-ratio: 1;
@@ -352,7 +356,9 @@ nav {
     padding-bottom: 5px;
     transition: color 0.3s ease;
 }
-
+#text{
+    text-align: center !important;
+}
 .nav-links a:hover {
     color: var(--primary);
 }
@@ -1267,7 +1273,10 @@ footer {
         padding: 5px 0;
         min-width: 0 !important;
     }
-    
+    p {
+        text-align: justify !important;
+    }
+
     .contact-form-card input[type="text"],
     .contact-form-card input[type="email"],
     .contact-form-card textarea {
