@@ -174,16 +174,37 @@ ul {
     border: 1px solid var(--primary);
 }
 
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
 .btn-white {
     background-color: var(--btn-white-bg);
     color: var(--btn-white-text);
     border: 1px solid var(--btn-white-bg);
 }
 
+.btn-white:hover {
+    background-color: var(--text-secondary);
+    border-color: var(--text-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
 .btn-outline {
     background: transparent;
     color: var(--text-main);
     border: 1px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
 }
 
 .tag {
@@ -675,6 +696,9 @@ body.light-mode .team-card {
 .contact-text {
     flex: 1;
     min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .contact-text h2 {
