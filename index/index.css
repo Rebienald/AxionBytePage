@@ -252,6 +252,7 @@ ul {
 
 .section-subtitle {
     text-align: center;
+    text-align-last: center;
     color: var(--text-secondary);
     max-width: 700px;
     margin: 0 auto 4rem auto;
@@ -490,6 +491,8 @@ nav {
     max-width: 700px;
     margin: 0 auto 2.5rem auto;
     font-size: 1.1rem;
+    text-align: center;
+    text-align-last: center;
 }
 
 .hero-btns {
@@ -515,6 +518,7 @@ nav {
     border-radius: 10px;
     transition: 0.3s;
     box-shadow: var(--shadow);
+    text-align: left;
 }
 
 .about-card:hover {
@@ -535,15 +539,17 @@ nav {
     margin-bottom: 20px;
 }
 
-.about-card h3 {
+#about .about-card h3 {
     margin-bottom: 15px;
     font-size: 1.25rem;
     color: var(--text-main);
+    text-align: left !important;
 }
 
-.about-card p {
+#about .about-card p {
     color: var(--text-secondary);
     font-size: 0.95rem;
+    text-align: left !important;
 }
 
 #services {
@@ -575,6 +581,7 @@ nav {
     border-radius: 10px;
     transition: 0.3s;
     box-shadow: var(--shadow);
+    text-align: left;
 }
 
 .service-card:hover {
@@ -595,15 +602,17 @@ nav {
     margin-bottom: 25px;
 }
 
-.service-card h3 {
+#services .service-card h3 {
     margin-bottom: 15px;
     font-size: 1.2rem;
     color: var(--text-main);
+    text-align: left !important;
 }
 
-.service-card p {
+#services .service-card p {
     color: var(--text-secondary);
     font-size: 0.9rem;
+    text-align: left !important;
 }
 
 #portfolio {
@@ -681,19 +690,20 @@ nav {
     border-bottom: 1px solid var(--card-border);
 }
 
-.team-content {
+#portfolio .team-content {
     padding: 25px;
-    text-align: left;
+    text-align: left !important;
 }
 
-.team-name {
+#portfolio .team-name {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 5px;
     color: var(--text-main);
+    text-align: left !important;
 }
 
-.team-role {
+#portfolio .team-role {
     color: var(--primary);
     font-size: 0.9rem;
     font-weight: 600;
@@ -701,14 +711,16 @@ nav {
     letter-spacing: 1px;
     margin-bottom: 15px;
     display: block;
+    text-align: left !important;
 }
 
-.team-desc {
+#portfolio .team-desc {
     font-size: 0.95rem;
     color: var(--text-secondary);
     margin-bottom: 20px;
     line-height: 1.5;
     min-height: 48px;
+    text-align: left !important;
 }
 
 .team-tags {
@@ -861,6 +873,8 @@ body.light-mode .team-card {
     font-size: 0.7rem;
     opacity: 0.9;
     margin-bottom: 15px;
+    text-align: center;
+    text-align-last: center;
 }
 
 .contact-btn-white {
@@ -881,9 +895,10 @@ footer {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
-    gap: 40px;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
     margin-bottom: 60px;
+    align-items: start;
 }
 
 .footer-logo div {
@@ -896,11 +911,13 @@ footer {
     color: #d8b4fe;
 }
 
-.footer-desc {
+footer .footer-desc {
     color: var(--text-secondary);
     font-size: 0.9rem;
     margin-bottom: 20px;
     max-width: 300px;
+    text-align: left !important;
+    text-align-last: left !important;
 }
 
 .footer-social {
@@ -1015,6 +1032,7 @@ footer {
     .hero-content p {
         padding: 0 10px;
         font-size: 1rem;
+        text-align: center;
     }
 
     .hero-btns {
@@ -1042,7 +1060,7 @@ footer {
 
     .footer-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 60px;
         text-align: center;
     }
 
