@@ -2,41 +2,100 @@
         const navLinks = document.querySelector('.nav-links');
         const navItems = document.querySelectorAll('.nav-link-item');
 
+        // Clean URL routing system
+        function initRouter() {
+            // Handle navigation clicks
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const url = item.getAttribute('href');
+                    const route = url.substring(1); // Remove leading slash
+                    navigateToRoute(route, url);
+                });
+            });
+
+            // Handle other navigation buttons
+            document.querySelectorAll('a[href^="/"]').forEach(link => {
+                if (!link.classList.contains('nav-link-item')) {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const url = link.getAttribute('href');
+                        const route = url.substring(1);
+                        navigateToRoute(route, url);
+                    });
+                }
+            });
+
+            // Handle browser back/forward buttons
+            window.addEventListener('popstate', (e) => {
+                const route = e.state ? e.state.route : getRouteFromPath();
+                scrollToSection(route);
+                updateActiveNavigation(route);
+            });
+
+            // Initialize on page load
+            const initialRoute = getRouteFromPath();
+            if (initialRoute && initialRoute !== 'home') {
+                setTimeout(() => scrollToSection(initialRoute), 100);
+            }
+            updateActiveNavigation(initialRoute || 'home');
+        }
+
+        function getRouteFromPath() {
+            const path = window.location.pathname;
+            return path === '/' ? 'home' : path.substring(1);
+        }
+
+        function navigateToRoute(route, url) {
+            // Update browser history
+            history.pushState({ route: route }, '', url);
+            
+            // Scroll to section
+            scrollToSection(route);
+            
+            // Update navigation state
+            updateActiveNavigation(route);
+            
+            // Close mobile menu if open
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        }
+
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        function updateActiveNavigation(currentRoute) {
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                const itemRoute = item.getAttribute('href').substring(1);
+                if (itemRoute === currentRoute) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
 
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-                
-                // Disable scroll detection during navigation
-                isNavigating = true;
-                
-                // Get target section and update active state immediately
-                const targetSection = item.getAttribute('href').substring(1);
-                navItems.forEach(link => link.classList.remove('active'));
-                item.classList.add('active');
-                
-                // Re-enable scroll detection after navigation completes
-                setTimeout(() => {
-                    isNavigating = false;
-                }, 1000);
-            });
-        });
-
-        // Navigation highlighting based on scroll position
+        // Enhanced scroll-based navigation highlighting
         let isNavigating = false;
         
-        function updateActiveNavigation() {
-            if (isNavigating) return; // Skip update during navigation
+        function updateActiveNavigationOnScroll() {
+            if (isNavigating) return;
             
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-link-item');
             
-            let currentSection = '';
+            let currentSection = 'home';
             const scrollY = window.pageYOffset;
             
             sections.forEach(section => {
@@ -48,16 +107,33 @@
                 }
             });
             
+            // Update URL without triggering navigation
+            const newPath = currentSection === 'home' ? '/' : `/${currentSection}`;
+            if (window.location.pathname !== newPath) {
+                history.replaceState({ route: currentSection }, '', newPath);
+            }
+            
+            // Update active navigation
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSection}`) {
+                const linkRoute = link.getAttribute('href').substring(1);
+                if (linkRoute === currentSection) {
                     link.classList.add('active');
                 }
             });
         }
         
-        // Update navigation on scroll
-        window.addEventListener('scroll', updateActiveNavigation);
+        // Initialize router and scroll detection
+        document.addEventListener('DOMContentLoaded', function() {
+            initRouter();
+            
+            // Scroll detection with throttling
+            let scrollTimeout;
+            window.addEventListener('scroll', function() {
+                if (scrollTimeout) clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(updateActiveNavigationOnScroll, 10);
+            });
+        });
         
         // Update navigation on page load
         updateActiveNavigation();
