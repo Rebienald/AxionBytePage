@@ -47,18 +47,26 @@
         }
 
         function navigateToRoute(route, url) {
+            // Disable scroll detection during navigation
+            isNavigating = true;
+            
             // Update browser history
             history.pushState({ route: route }, '', url);
+            
+            // Update navigation state immediately
+            updateActiveNavigation(route);
             
             // Scroll to section
             scrollToSection(route);
             
-            // Update navigation state
-            updateActiveNavigation(route);
-            
             // Close mobile menu if open
             hamburger.classList.remove('active');
             navLinks.classList.remove('active');
+            
+            // Re-enable scroll detection after navigation completes
+            setTimeout(() => {
+                isNavigating = false;
+            }, 1000);
         }
 
         function scrollToSection(sectionId) {
