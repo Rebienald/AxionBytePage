@@ -15,7 +15,7 @@
 
 	function setStatus(msg, isError) {
 		statusEl.textContent = msg;
-		statusEl.style.color = isError ? '#fca5a5' : 'var(--text-secondary)';
+		statusEl.style.color = isError ? '#ff0000ff' : 'var(--text-secondary)';
 	}
 
 	clearBtn.addEventListener('click', () => {

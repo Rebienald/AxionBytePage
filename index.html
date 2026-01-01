@@ -8,10 +8,20 @@
     <link rel="icon" type="image/png" href="Axionbyte.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index/index.css">
+    <link rel="stylesheet" href="index/index.css?v=1.0">
+
+    <style>
+     
+    </style>
 </head>
 
-<body>
+<body class="loading-active">
+
+    <div id="preloader">
+        <div class="loader"></div>
+        <div class="loader-text">Accessing AxionByte</div>
+    </div>
+
     <div class="background">
         <span class="ball"></span>
         <span class="ball"></span>
@@ -245,14 +255,14 @@
         </div>
     </section>
 
-    <section id="contact">
+    <section id="contact"  >
         <div class="container">
             <div class="contact-layout">
                 <div class="contact-text">
                     <h2>Here's how you<br>can connect with<br>us!</h2>
                     <p style="margin-top:20px;">We are happy to help you with your inquiries!</p>
                 </div>
-                <div class="contact-card-container">
+                <div class="contact-card-container"  >
                     <div class="contact-support-label">
                         <i class="fa-solid fa-headset"></i> Customer Support
                     </div>
@@ -274,7 +284,7 @@
 <br>
                 <div class="contact-form-card">
                     <form id="contact-form" class="about-card" novalidate>
-                        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                        <div style="display:flex; gap:8px; flex-wrap:wrap;">
                             <div style="flex:1; min-width:150px;">
                                 <input type="text" id="from_name" name="from_name" placeholder="Name" required>
                             </div>
@@ -283,15 +293,15 @@
                             </div>
                         </div>
 
-                        <div style="margin-top:12px;">
+                        <div style="margin-top:8px;">
                             <input type="text" id="subject" name="subject" placeholder="Subject" required>
                         </div>
 
-                        <div style="margin-top:12px;">
+                        <div style="margin-top:8px;">
                             <textarea id="message" name="message" rows="6" placeholder="Write your message..." required></textarea>
                         </div>
 
-                        <div style="margin-top:16px; display:flex; gap:12px; align-items:center;">
+                        <div style="margin-top:10px; display:flex; gap:12px; align-items:center;">
                             <button class="btn btn-primary" type="submit">Send message</button>
                             <button id="clear-btn" type="button" class="btn btn-outline">Clear</button>
                             <div id="form-status" style="color:var(--text-secondary); font-size:0.95rem;"></div>
@@ -329,11 +339,12 @@
     </footer>
 
     <script src="index/index.js"></script>
-        <script src="ContactUs/contact.js"></script>
-
+    <script src="ContactUs/contact.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+
     <script>
-       
+      
     </script>
 
+</body>
 </html>

@@ -156,4 +156,17 @@
 
 
 
-        
+          window.addEventListener('load', function() {
+            setTimeout(function() {
+                var preloader = document.getElementById('preloader');
+                var body = document.body;
+
+                preloader.classList.add('preloader-hidden');
+
+                body.classList.remove('loading-active');
+
+                setTimeout(function() {
+                    preloader.style.display = 'none';
+                }, 500); 
+            }, 3000); // 3-second wait
+        });
