@@ -630,7 +630,7 @@ nav {
 
 .portfolio-focus-wrapper::before {
     content: '';
-    position: absolute;
+    position: c;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -648,10 +648,11 @@ nav {
     100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.1); }
 }
 
+/* === MODIFIED: DESKTOP TEAM CAROUSEL (FLEXBOX FOR CENTERING) === */
 .team-carousel {
-    display: grid;
-    /* This creates the "next to each other" layout */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers the cards */
     gap: 30px;
     padding-bottom: 20px;
     border-radius: 10px;
@@ -662,6 +663,7 @@ nav {
     display: none;
 }
 
+/* === MODIFIED: DESKTOP TEAM CARD (FLEX SIZING) === */
 .team-card {
     background-color: rgba(15, 15, 15, 0.85);
     backdrop-filter: blur(10px);
@@ -673,6 +675,10 @@ nav {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     height: 100%;
+    
+    /* ADDED to maintain size but allow centering */
+    flex: 1 1 300px;
+    max-width: 380px; 
 }
 
 .team-card img {
@@ -752,28 +758,22 @@ body.light-mode .team-card {
 }
 
 .carousel-btn {
-    /* ... keep your existing positioning styles ... */
+    
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
-    background-color: var(--card-bg);
-    border: 1px solid var(--card-border);
-    color: var(--text-main);
     border-radius: 10px;
     cursor: pointer;
     z-index: 10;
     transition: 0.3s;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    
-    /* ADD THIS: Hide buttons on PC/Desktop */
+
     display: none; 
 }
 .carousel-btn:hover {
-    background-color: var(--primary);
-    border-color: var(--primary);
     color: white;
+
 }
 
 .prev-btn { left: -70px; }
@@ -818,7 +818,7 @@ body.light-mode .team-card {
     border-radius: 10px;
     padding: 40px;
     min-width: 280px;
-    position: relative;
+    position: center;
     margin-right: 20px;
 }
 
@@ -1121,6 +1121,7 @@ footer .footer-desc {
         max-width: 90%;
     }
 
+    /* === PROTECT MOBILE SCROLLING HERE === */
     .team-carousel {
         display: flex;
         overflow-x: auto;
@@ -1128,6 +1129,10 @@ footer .footer-desc {
         gap: 20px;
         scrollbar-width: none;
         -ms-overflow-style: none;
+        
+        /* Forces horizontal scroll, overrides desktop wrapping */
+        flex-wrap: nowrap;
+        justify-content: flex-start;
     }
     
     .team-carousel::-webkit-scrollbar {
@@ -1139,6 +1144,9 @@ footer .footer-desc {
         flex: 0 0 100%;
         scroll-snap-align: center;
         height: auto !important;
+        
+        /* Reset max-width for mobile so it fills the carousel card area */
+        max-width: none; 
     }
 
     .carousel-btn {
@@ -1149,16 +1157,16 @@ footer .footer-desc {
         left: -10px;
         width: 35px;
         height: 35px;
-        background: rgba(0, 0, 0, 0.6);
+        background: none;
         color: white;
         border: none;
     }
 
     .next-btn {
-        right: -10px;
+        right: -38px;
         width: 35px;
         height: 35px;
-        background: rgba(0, 0, 0, 0.6);
+        background:none;
         color: white;
         border: none;
     }
